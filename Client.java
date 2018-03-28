@@ -18,7 +18,7 @@ public class Client
             BufferedReader tcpIn = new BufferedReader(new InputStreamReader(tcpS.getInputStream()));
             PrintWriter tcpOut = new PrintWriter(tcpS.getOutputStream(), true);
 
-            tcpOut.println("Ping!");
+            tcpOut.println("Table!");
             System.out.println(tcpIn.readLine());
 
             tcpS.close();
