@@ -14,10 +14,9 @@ public class Server{
             System.out.println(outputLine);
             while ((inputLine = in.readLine()) != null) {
                 
-                if (outputLine.equals("table"))
                 outputLine = kkp.processInput(inputLine);
                 System.out.println(outputLine);
-                System.out.println("tennis!");
+                if (outputLine.equals("Bye!"));
                 break;
             }
         }
