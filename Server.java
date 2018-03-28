@@ -1,24 +1,33 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+
 //Server Class
-public class Server{
+public class Server {
     public static void main(String[] args) {
-        try ( 
-        ServerSocket serverSocket = new ServerSocket(37802);
-        Socket clientSocket = serverSocket.accept();
-        PrintWriter out =
-        new PrintWriter(clientSocket.getOutputStream(), true);
-        BufferedReader in = new BufferedReader(
-        new InputStreamReader(clientSocket.getInputStream()));
-        ) {
-            TennisProtol ten = new TennisProtcol();
+        try {
+            ServerSocket serverSocket = new ServerSocket(37802);
+            Socket clientSocket = serverSocket.accept();
+            PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+
+            TennisProtocol ten = new TennisProtocol();
             String outputLine = ten.processInput(null);
+            String inputLine;
             System.out.println(outputLine);
             while ((inputLine = in.readLine()) != null) {
-                
-                outputLine = kkp.processInput(inputLine);
+
+                outputLine = ten.processInput(inputLine);
                 System.out.println(outputLine);
-                if (outputLine.equals("Bye!"));
-                break;
+                if (outputLine.equals("Bye!"))
+                    break;
             }
+
+            serverSocket.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
