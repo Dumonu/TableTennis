@@ -11,10 +11,10 @@ public class Server{
         ) {
             while ((inputLine = in.readLine()) != null) {
                 
-                if (outputLine.equals("ping"))
+                if (outputLine.equals("table"))
                 outputLine = kkp.processInput(inputLine);
                 System.out.println(outputLine);
-                System.out.println("pong");
+                System.out.println("tennis!");
                 break;
             }
         }
