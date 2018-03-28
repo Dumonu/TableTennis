@@ -9,6 +9,9 @@ public class Server{
         BufferedReader in = new BufferedReader(
         new InputStreamReader(clientSocket.getInputStream()));
         ) {
+            TennisProtol ten = new TennisProtcol();
+            String outputLine = ten.processInput(null);
+            System.out.println(outputLine);
             while ((inputLine = in.readLine()) != null) {
                 
                 if (outputLine.equals("table"))
