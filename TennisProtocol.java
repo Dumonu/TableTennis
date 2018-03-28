@@ -1,17 +1,20 @@
 
-public class TennisProtcol {
-    private int state = WAITING;
-    private enum States{
+public class TennisProtocol {
+    private States state = States.WAITING;
+
+    private enum States {
         WAITING, SENT
     }
-    public String processInput(String theInput){
-        if(state == WAITING){
-        if(theInput == "Table!"){
-            state = SENT;
-            return "Tennis!";
-        }else{
-            return "Bye!";
+
+    public String processInput(String theInput) {
+        if (state == States.WAITING) {
+            if (theInput == "Table!") {
+                state = States.SENT;
+                return "Tennis!";
+            } else {
+                return "Bye!";
+            }
         }
-    }
+        return "";
     }
 }
