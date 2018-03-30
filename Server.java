@@ -16,11 +16,11 @@ public class Server {
             TennisProtocol ten = new TennisProtocol();
             String outputLine = ten.processInput(null);
             String inputLine;
-            System.out.println(outputLine);
+            out.println(outputLine);
             while ((inputLine = in.readLine()) != null) {
 
                 outputLine = ten.processInput(inputLine);
-                System.out.println(outputLine);
+                out.println(outputLine);
                 if (outputLine.equals("Bye!"))
                     break;
             }
