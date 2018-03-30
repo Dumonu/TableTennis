@@ -14,7 +14,7 @@ public class Server {
             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
             TennisProtocol ten = new TennisProtocol();
-            String outputLine = ten.processInput(null);
+            String outputLine = ten.processInput(in.readLine());
             String inputLine;
             out.println(outputLine);
             while ((inputLine = in.readLine()) != null) {

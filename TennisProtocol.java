@@ -8,7 +8,7 @@ public class TennisProtocol {
 
     public String processInput(String theInput) {
         if (state == States.WAITING) {
-            if (theInput == "Table!") {
+            if (theInput.equals("Table!")) {
                 state = States.SENT;
                 return "Tennis!";
             } else {
